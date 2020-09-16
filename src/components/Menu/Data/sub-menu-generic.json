@@ -1,0 +1,11 @@
+{
+	"backIcon": "arrowIcon",
+	"menuTitle": "Generic Variant",
+	"menuLinks": [
+        {
+			"title": "Generic Form",
+			"icon": "formIcon",
+			"link": "/"
+		}
+	]
+}
