@@ -6,6 +6,7 @@ const GenericVariantPage = () => {
     return (
         <div className="page-container">
             <h2 className="page-continer-heading">Generic Form Variant</h2>
+            <GenericForm />
         </div>
     )
 }
