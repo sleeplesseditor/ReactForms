@@ -3,6 +3,32 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        .btn {
+            cursor: pointer;
+            color: #fff;
+            transition: all .2s ease-in-out;
+            padding:  0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn-danger {
+            background-color: rgb(199, 1, 1);
+
+            &:hover {
+                background-color: rgb(255, 4, 4);
+            }
+        }
+
+        .btn-primary {
+            background-color: rgb(10, 28, 189);
+
+            &:hover {
+                background-color: rgb(29, 52, 250);
+            }
+        }
     }
 
     &-control {
