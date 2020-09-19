@@ -4,6 +4,7 @@ import './Menu.scss';
 
 import MainMenuData from './Data/main-menu.json';
 import SubMenuGeneric from './Data/sub-menu-generic.json';
+import SubMenuFormik from './Data/sub-menu-formik.json';
 
 function Menu({ navIcon, title }) {
   const [open, setOpen] = useState(false);
@@ -57,6 +58,12 @@ function Menu({ navIcon, title }) {
           activeMenuProp={activeMenu === 'generic'}
           calcHeight={calcHeight}
           menuData={SubMenuGeneric}
+          setActiveMenu={setActiveMenu}
+        />
+        <SecondaryMenu
+          activeMenuProp={activeMenu === 'formik'}
+          calcHeight={calcHeight}
+          menuData={SubMenuFormik}
           setActiveMenu={setActiveMenu}
         />
       </div>
