@@ -1,0 +1,11 @@
+{
+	"backIcon": "arrowIcon",
+	"menuTitle": "React Hook Form Variant",
+	"menuLinks": [
+        {
+			"title": "Basic Variant",
+			"icon": "formIcon",
+			"link": "/basic-rhf"
+		}
+	]
+}

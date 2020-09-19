@@ -5,6 +5,7 @@ import './Menu.scss';
 import MainMenuData from './Data/main-menu.json';
 import SubMenuGeneric from './Data/sub-menu-generic.json';
 import SubMenuFormik from './Data/sub-menu-formik.json';
+import SubMenuRHF from './Data/sub-menu-rhf.json';
 
 function Menu({ navIcon, title }) {
   const [open, setOpen] = useState(false);
@@ -64,6 +65,12 @@ function Menu({ navIcon, title }) {
           activeMenuProp={activeMenu === 'formik'}
           calcHeight={calcHeight}
           menuData={SubMenuFormik}
+          setActiveMenu={setActiveMenu}
+        />
+        <SecondaryMenu
+          activeMenuProp={activeMenu === 'react-hook-form'}
+          calcHeight={calcHeight}
+          menuData={SubMenuRHF}
           setActiveMenu={setActiveMenu}
         />
       </div>
