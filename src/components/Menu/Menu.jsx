@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { PrimaryMenu, SecondaryMenu, useOutsideAlerter } from './MenuHelpers';
+import { NewMenu, useOutsideAlerter } from './MenuHelpers';
 import './Menu.scss';
 
-import MainMenuData from './Data/main-menu.json';
-import SubMenuGeneric from './Data/sub-menu-generic.json';
-import SubMenuFormik from './Data/sub-menu-formik.json';
-import SubMenuRHF from './Data/sub-menu-rhf.json';
+import alternativeData from './Data/menu-alternative.json';
 
 function Menu({ navIcon, title }) {
   const [open, setOpen] = useState(false);
@@ -49,28 +46,11 @@ function Menu({ navIcon, title }) {
   
     return (
       <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
-        <PrimaryMenu
+        <NewMenu
+          activeMenu={activeMenu}
           activeMenuProp={activeMenu === 'main'}
           calcHeight={calcHeight}
-          menuData={MainMenuData}
-          setActiveMenu={setActiveMenu}
-        /> 
-        <SecondaryMenu
-          activeMenuProp={activeMenu === 'generic'}
-          calcHeight={calcHeight}
-          menuData={SubMenuGeneric}
-          setActiveMenu={setActiveMenu}
-        />
-        <SecondaryMenu
-          activeMenuProp={activeMenu === 'formik'}
-          calcHeight={calcHeight}
-          menuData={SubMenuFormik}
-          setActiveMenu={setActiveMenu}
-        />
-        <SecondaryMenu
-          activeMenuProp={activeMenu === 'react-hook-form'}
-          calcHeight={calcHeight}
-          menuData={SubMenuRHF}
+          menuData={alternativeData}
           setActiveMenu={setActiveMenu}
         />
       </div>

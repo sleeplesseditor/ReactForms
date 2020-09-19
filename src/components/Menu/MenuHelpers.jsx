@@ -27,14 +27,16 @@ function DropdownItem({ children, goToMenu, leftIcon, rightIcon, setActiveMenu, 
     );
 }
 
-const PrimaryMenu = ({
+const NewMenu = ({
+    activeMenu,
     activeMenuProp,
     calcHeight,
-    menuData: { menuTitles },
+    menuData: { menuTitles, subMenus },
     setActiveMenu
 }) => {
     if (menuTitles) {
         return (
+            <>
             <CSSTransition
                 in={activeMenuProp}
                 timeout={500}
@@ -54,26 +56,9 @@ const PrimaryMenu = ({
                     ))}
                 </div>
             </CSSTransition>
-        )
-    } else {
-        return null
-    }
-};
-
-const SecondaryMenu = ({
-    activeMenuProp,
-    calcHeight,
-    menuData: {
-        backIcon,
-        menuTitle,
-        menuLinks
-    }, 
-    setActiveMenu
-}) => {
-    if (menuTitle && menuLinks) {
-        return (
-            <CSSTransition
-                in={activeMenuProp}
+            {subMenus.map(submenu => (
+                <CSSTransition
+                in={activeMenu === `${submenu.activeMenu}`}
                 timeout={500}
                 classNames="menu-secondary"
                 unmountOnExit
@@ -82,12 +67,12 @@ const SecondaryMenu = ({
                 <div className="menu">
                     <DropdownItem 
                         goToMenu="main" 
-                        leftIcon={IconSelector(backIcon)} 
+                        leftIcon={IconSelector(submenu.backIcon)} 
                         setActiveMenu={setActiveMenu} 
                     >
-                        <h3>{menuTitle}</h3>
+                        <h3>{submenu.menuTitle}</h3>
                     </DropdownItem>
-                    {menuLinks.map(link => (
+                    {submenu.menuLinks.map(link => (
                         <DropdownItem 
                             leftIcon={IconSelector(link.icon)} 
                             subMenu={link.link}
@@ -96,11 +81,13 @@ const SecondaryMenu = ({
                         </DropdownItem>
                     ))}
                 </div>
-            </CSSTransition>
+                </CSSTransition>
+            ))}
+            </>
         )
     } else {
         return null
     }
 };
 
-export { PrimaryMenu, SecondaryMenu, useOutsideAlerter };
+export { NewMenu, useOutsideAlerter };

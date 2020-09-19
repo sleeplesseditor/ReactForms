@@ -1,0 +1,57 @@
+{
+	"menuTitles": [
+        {
+			"title": "Generic Variant",
+			"icon": "formIcon",
+			"link": "generic"
+		},
+		{
+			"title": "React Hook Form",
+			"icon": "reactLogo",
+			"link": "react-hook-form"
+		},
+		{
+			"title": "Formik",
+			"icon": "formikIcon",
+			"link": "formik"
+		}
+    ],
+    "subMenus": [
+        {
+            "activeMenu": "generic",
+            "backIcon": "arrowIcon",
+            "menuTitle": "Generic Variant",
+            "menuLinks": [
+                {
+                    "title": "Generic Form",
+                    "icon": "formIcon",
+                    "link": "/"
+                }
+            ]
+        },
+        {
+            "activeMenu": "formik",
+            "backIcon": "arrowIcon",
+            "menuTitle": "Formik Variant",
+            "menuLinks": [
+                {
+                    "title": "Basic Formik Variant",
+                    "icon": "formikIcon",
+                    "link": "/basic-formik"
+                }
+            ]
+        },
+        {
+            "activeMenu": "react-hook-form",
+            "backIcon": "arrowIcon",
+            "menuTitle": "React Hook Form Variant",
+            "menuLinks": [
+                {
+                    "title": "Basic Variant",
+                    "icon": "reactLogo",
+                    "link": "/basic-rhf"
+                }
+            ]
+        }
+    ]
+}
