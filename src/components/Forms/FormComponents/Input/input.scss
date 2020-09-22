@@ -1,0 +1,23 @@
+.input {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    &-error-message {
+        font-size: 0.75em;
+        color: red;
+        margin-top: 0.25rem;
+    }
+
+    &-label {
+        font-size: 0.75rem;
+        font-family: sans-serif;
+        color: rgb(109, 109, 109);
+    }
+}
+
+.error-display {
+    border: 1px solid red;
+}
