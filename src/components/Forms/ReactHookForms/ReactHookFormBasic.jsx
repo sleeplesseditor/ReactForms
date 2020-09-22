@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
-import './ReactHookFormBasic.scss';
+import './ReactHookForm.scss';
 
 function ReactHookForm() {
   const {
@@ -23,7 +23,6 @@ function ReactHookForm() {
 
   return (
     <div>
-      <h5>React Hook Form</h5>
       <form onSubmit={handleSubmit(onSubmit)}>
         {/*Username*/}
         <div className="form-group">

@@ -50,6 +50,11 @@
                     "title": "Basic Variant",
                     "icon": "reactLogo",
                     "link": "/basic-rhf"
+                },
+                {
+                    "title": "Custom Component Variant",
+                    "icon": "reactLogo",
+                    "link": "/custom-rhf"
                 }
             ]
         }
