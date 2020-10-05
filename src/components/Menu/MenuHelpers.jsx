@@ -19,7 +19,7 @@ function useOutsideAlerter(ref, openView) {
 
 function DropdownItem({ children, goToMenu, leftIcon, rightIcon, setActiveMenu, subMenu }) {
     return (
-      <a href={subMenu ? subMenu : '#'} className="menu-item" onClick={() => goToMenu && setActiveMenu(goToMenu)}>
+      <a href={subMenu ? subMenu : '#'} key={leftIcon} className="menu-item" onClick={() => goToMenu && setActiveMenu(goToMenu)}>
         <span className="icon-button">{leftIcon}</span>
         {children}
         <span className="icon-right">{rightIcon}</span>
@@ -46,7 +46,8 @@ const NewMenu = ({
             >
                 <div className="menu">
                     {menuTitles.map(link => (
-                        <DropdownItem 
+                        <DropdownItem
+                            key={link.link}
                             leftIcon={IconSelector(link.icon)} 
                             setActiveMenu={setActiveMenu} 
                             goToMenu={link.link}
@@ -58,12 +59,13 @@ const NewMenu = ({
             </CSSTransition>
             {subMenus.map(submenu => (
                 <CSSTransition
-                in={activeMenu === `${submenu.activeMenu}`}
-                timeout={500}
-                classNames="menu-secondary"
-                unmountOnExit
-                onEnter={calcHeight}
-            >
+                    in={activeMenu === `${submenu.activeMenu}`}
+                    key={submenu.menuTitle}
+                    timeout={500}
+                    classNames="menu-secondary"
+                    unmountOnExit
+                    onEnter={calcHeight}
+                >
                 <div className="menu">
                     <DropdownItem 
                         goToMenu="main" 
@@ -73,7 +75,8 @@ const NewMenu = ({
                         <h3>{submenu.menuTitle}</h3>
                     </DropdownItem>
                     {submenu.menuLinks.map(link => (
-                        <DropdownItem 
+                        <DropdownItem
+                            key={link.link}
                             leftIcon={IconSelector(link.icon)} 
                             subMenu={link.link}
                         >
