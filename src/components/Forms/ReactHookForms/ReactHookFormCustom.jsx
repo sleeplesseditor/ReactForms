@@ -3,6 +3,7 @@ import Input from '../FormComponents/Input/input';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers';
 import { basicValidationSchema } from '../validation/basicFormValidator';
+import { PasswordStrength, validatePassword } from '../PasswordStrength/PasswordStrength';
 import './ReactHookForm.scss';
 
 function ReactHookCustom() {
@@ -87,7 +88,7 @@ function ReactHookCustom() {
                     placeholder="Insert Password"
                     name="password"
                     type="text"
-                    onChange={e => props.onChange(e)}
+                    onChange={validatePassword}
                     value={props.value}
                     errorMessage={errors.password?.message}
                 />
@@ -117,6 +118,8 @@ function ReactHookCustom() {
               )}
             />
         </div>
+
+        <PasswordStrength />
 
         <div className="form-btn-group">
           <button
