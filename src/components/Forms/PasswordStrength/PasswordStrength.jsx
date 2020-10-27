@@ -27,10 +27,10 @@ const PasswordStrength = () => {
             </div>
             {validations.length ? (
                 <ul>
-                    <li> {validations[0] ? '✔️' : '❌'} must be at least 5 characters</li>
-                    <li> {validations[1] ? '✔️' : '❌'} must contain a capital letter</li>
-                    <li> {validations[2] ? '✔️' : '❌'} must contain a number</li>
-                    <li> {validations[3] ? '✔️' : '❌'} must contain one of $&+,:;=?@#</li>
+                    <li> {validations[0] ? '✔️' : '❌'} Must be at least 5 characters</li>
+                    <li> {validations[1] ? '✔️' : '❌'} Must contain a capital letter</li>
+                    <li> {validations[2] ? '✔️' : '❌'} Must contain a number</li>
+                    <li> {validations[3] ? '✔️' : '❌'} Must contain one of $&+,:;=?@#</li>
                 </ul>
             ): null}
             <div className="strength-text">{strengthText[strength]}</div>

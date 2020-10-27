@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from '../FormComponents/Input/input';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers';
@@ -7,6 +7,7 @@ import { PasswordStrength, validatePassword } from '../PasswordStrength/Password
 import './ReactHookForm.scss';
 
 function ReactHookCustom() {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     control,
     register,
@@ -87,13 +88,19 @@ function ReactHookCustom() {
                     label="Password"
                     placeholder="Insert Password"
                     name="password"
-                    type="text"
+                    type={showPassword ? 'text' : 'password'}
                     onChange={validatePassword}
                     value={props.value}
                     errorMessage={errors.password?.message}
                 />
               )}
             />
+            <span
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? '🙈' : '👁️'}
+            </span>
         </div>
 
         {/*Confirm Password*/}
