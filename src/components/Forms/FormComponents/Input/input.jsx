@@ -9,6 +9,7 @@ const Input = ({
     label,
     name,
     onChange,
+    passwordStrength,
     placeholder,
     register,
     required,
@@ -17,11 +18,12 @@ const Input = ({
     <div className="input-container">
         {label != null && <label className="input-label" htmlFor={name}>{required ? `${label} *` : label}</label>}
         <input 
+            aria-label={name}
             className={errorMessage !== null ? errorMessage && (`${className} error-display`) : className}
             disabled={disabled}
             key={name}
             name={name}
-            onChange={onChange}
+            onChange={passwordStrength ? onChange && passwordStrength : onChange}
             placeholder={placeholder}
             type={type}
         />

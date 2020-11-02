@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from '../FormComponents/Input/input';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers';
 import { basicValidationSchema } from '../validation/basicFormValidator';
-import { PasswordStrength, validatePassword } from '../PasswordStrength/PasswordStrength';
+import { PasswordStrength } from '../PasswordStrength/PasswordStrength';
 import './ReactHookForm.scss';
 
 function ReactHookCustom() {
   const [showPassword, setShowPassword] = useState(false);
+
   const {
     control,
     register,
@@ -16,13 +17,17 @@ function ReactHookCustom() {
     getValues,
     formState,
     reset,
+    watch
   } = useForm({
     resolver: yupResolver(basicValidationSchema)
   });
 
+  const watchPassword = watch("password", '');
+
   const onSubmit = (data, e) => {
+    console.log('Data', data)
+    console.log('Event', e)
     e.target.reset();
-    console.log(data);
   };
 
   return (
@@ -89,7 +94,8 @@ function ReactHookCustom() {
                     placeholder="Insert Password"
                     name="password"
                     type={showPassword ? 'text' : 'password'}
-                    onChange={validatePassword}
+                    // passwordStrength={e => validatePassword(e)}
+                    onChange={e => props.onChange(e)}
                     value={props.value}
                     errorMessage={errors.password?.message}
                 />
@@ -117,7 +123,7 @@ function ReactHookCustom() {
                     label="Confirm Password"
                     placeholder="Confirm Password"
                     name="confirmPassword"
-                    type="text"
+                    type={showPassword ? 'text' : 'password'}
                     onChange={e => props.onChange(e)}
                     value={props.value}
                     errorMessage={errors.confirmPassword?.message}
@@ -126,7 +132,7 @@ function ReactHookCustom() {
             />
         </div>
 
-        <PasswordStrength />
+        <PasswordStrength passwordValue={watchPassword} />
 
         <div className="form-btn-group">
           <button
